@@ -45,10 +45,29 @@ else
 
 nextBlender() {
 IfWinNotExist, ahk_exe blender.exe
-	Run, "C:\Program Files\Blender Foundation\Blender 2.90\blender.exe"
+	Run, "C:\Program Files\Blender Foundation\Blender 2.92\blender.exe"
 GroupAdd, tylerBlenders, ahk_exe blender.exe
 if WinActive ("ahk_exe blender.exe")
 	GroupActivate, tylerBlenders, r
 else
 	WinActivate ahk_exe blender.exe
 }
+
+switchToNotepadPP() {
+IfWinNotExist, AHK_class Notepad++
+	Run, notepad++.exe
+if WinActive("ahk_class Notepad++")
+	send ^+{tab}
+else
+	WinActivate ahk_class Notepad++
+}
+
+switchToNotion() {
+IfWinNotExist, AHK_exe Notion.exe
+	Run, "C:\Users\tyler\AppData\Local\Programs\Notion\Notion.exe"
+if WinActive("ahk_exe Notion.exe")
+	sleep 100
+else
+	WinActivate ahk_exe Notion.exe
+}
+
